@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giỏ Hàng Của Bạn</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/giohang.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+   <header>
+    <div class="container"> <nav class="navbar">
+            <a href="index.html" class="logo">ChiaSẻ.VN</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="lienhe.html">Liên Hệ</a></li>
+            </ul>
+            <div class="header-cart">
+                <a href="giohang.html" id="cartLink">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+            </div>
+                        <div class="hamburger-menu" id="hamburgerMenu"> <div class="bar"></div>
+            </nav>
+    </div>
+</header>
+
+    <main>
+        <div class="container">
+            <section class="shopping-cart-section">
+                <h1>Giỏ Hàng Của Bạn</h1>
+                <div id="cartItemsContainer">
+                    </div>
+
+                <div class="cart-summary" id="cartSummaryContainer" style="display:none;">
+                    <div class="summary-row">
+                        <span>Tạm tính:</span>
+                        <span id="subtotalPrice">0 VNĐ</span>
+                    </div>
+                    <div class="summary-row total-row">
+                        <span>Tổng cộng:</span>
+                        <span id="totalPrice">0 VNĐ</span>
+                    </div>
+                    <button class="btn-checkout cta-button" id="checkoutBtn">Tiến Hành Thanh Toán</button>
+                    <button class="btn-clear-cart" id="clearCartBtn">Xóa Toàn Bộ Giỏ Hàng</button>
+                </div>
+                <div id="emptyCartMessage" class="empty-cart-message" style="display:none;">
+                    <p>Giỏ hàng của bạn đang trống.</p>
+                    <a href="sanpham.html" class="cta-button">Tiếp tục mua sắm</a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+
+    <script src="js/product_data.js"></script> <script src="js/cart_logic.js"></script>
+    <script src="js/main.js"></script> <script src="js/giohang.js"></script>
+</body>
+</html>

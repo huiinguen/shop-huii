@@ -1,0 +1,228 @@
+.product-detail {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    display: grid; /* Sử dụng grid cho layout linh hoạt */
+    grid-template-columns: 1fr; /* Mặc định 1 cột cho mobile */
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Responsive cho desktop */
+@media (min-width: 768px) {
+    .product-detail {
+        grid-template-columns: 1fr 1.5fr; /* 2 cột trên desktop */
+    }
+}
+
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-image-container {
+    width: 100%;
+    max-width: 450px; /* Giới hạn kích thước ảnh chính */
+    border: 1px solid #eee;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.main-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+    aspect-ratio: 1 / 1; /* Giữ tỉ lệ vuông hoặc theo ý muốn */
+    object-fit: cover;
+}
+
+.thumbnail-images {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.thumbnail-images img {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 2px solid #eee;
+    cursor: pointer;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.thumbnail-images img.active,
+.thumbnail-images img:hover {
+    border-color: #50b3a2;
+    transform: scale(1.05);
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.product-title {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 1.8em;
+    color: #e74c3c; /* Màu đỏ nổi bật cho giá */
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.product-meta p {
+    margin-bottom: 8px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.product-meta b {
+    color: #333;
+}
+
+.product-description {
+    margin-top: 25px;
+    border-top: 1px solid #eee;
+    padding-top: 25px;
+}
+
+.product-description h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.product-description p {
+    line-height: 1.8;
+    color: #666;
+}
+
+.product-actions {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.quantity-control label {
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.quantity-control input[type="number"] {
+    width: 60px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1em;
+}
+/* Ẩn nút tăng giảm mặc định của trình duyệt cho input number */
+.quantity-control input[type="number"]::-webkit-inner-spin-button,
+.quantity-control input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.quantity-control input[type="number"] {
+  -moz-appearance: textfield; /* Firefox */
+}
+
+
+.btn-add-to-cart {
+    background-color: #50b3a2;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: inline-flex; /* Để icon và text thẳng hàng */
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-add-to-cart:hover {
+    background-color: #409182;
+}
+
+.status-message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+/* Styles for Resource Actions (Copy/Go) */
+.resource-actions {
+    margin-top: 30px;
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+}
+
+.resource-link-display {
+    background-color: #f8f8f8;
+    padding: 15px;
+    border: 1px dashed #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 20px;
+    word-break: break-all; /* Đảm bảo link không bị tràn */
+}
+
+.resource-link-display a {
+    color: #50b3a2;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.resource-link-display a:hover {
+    text-decoration: underline;
+}
+
+.resource-buttons {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Cho phép các nút xuống dòng nếu không đủ chỗ */
+}
+
+.resource-buttons .cta-button {
+    flex: 1; /* Cho phép các nút giãn ra lấp đầy không gian */
+    min-width: 150px; /* Giới hạn chiều rộng tối thiểu cho nút */
+    padding: 12px 20px;
+    font-size: 1em;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.resource-buttons .primary-button {
+    background-color: #007bff; /* Màu xanh dương cho nút "Đi" */
+    color: white;
+}
+
+.resource-buttons .primary-button:hover {
+    background-color: #0056b3;
+}
+
+/* Error and Loading Text */
+.error-text {
+    color: red;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.loading-text {
+    text-align: center;
+    color: #666;
+    margin-top: 20px;
+}

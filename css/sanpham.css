@@ -1,0 +1,273 @@
+/* Trang sản phẩm - layout với sidebar và main content */
+main > .container.page-layout { /* Đã thêm class page-layout vào container */
+    display: flex;
+    gap: 20px; /* Khoảng cách giữa filter và product listing */
+    position: relative; /* Quan trọng cho overlay và sidebar */
+}
+
+/* Base styles for filters (desktop first) */
+.filters {
+    flex-basis: 25%; /* Độ rộng của sidebar filter */
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    align-self: flex-start; /* Để sidebar không bị kéo dài theo content */
+}
+
+.filters h3 {
+    margin-bottom: 20px;
+    font-size: 1.4em;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group h4 {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.filter-group ul {
+    list-style: none;
+    padding: 0;
+}
+
+.filter-group ul li {
+    margin-bottom: 8px;
+}
+
+.filter-group ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    padding: 5px 0;
+    transition: color 0.2s ease;
+}
+.filter-group ul li a:hover,
+.filter-group ul li a.active {
+    color: #50b3a2;
+    font-weight: bold;
+}
+
+#priceRange {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+#priceValue {
+    display: block;
+    text-align: center;
+    font-weight: bold;
+    color: #50b3a2;
+    margin-bottom: 15px;
+}
+
+#applyFiltersBtn {
+    width: 100%;
+    padding: 10px;
+    background-color: #50b3a2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+#applyFiltersBtn:hover {
+    background-color: #409182;
+}
+
+.product-listing {
+    flex-basis: 75%; /* Độ rộng của phần danh sách sản phẩm */
+    flex-grow: 1; /* Cho phép phần này giãn ra */
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+#searchInput {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 60%; /* Hoặc flex-grow: 1; */
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+#sortBy {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.pagination {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.pagination button {
+    background-color: #f0f0f0;
+    border: 1px solid #ddd;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.pagination button:hover:not(.active) {
+    background-color: #e0e0e0;
+}
+
+.pagination button.active {
+    background-color: #50b3a2;
+    color: white;
+    border-color: #50b3a2;
+    cursor: default;
+}
+
+/* ===================================== */
+/* Responsive Filter Sidebar Styles */
+/* ===================================== */
+
+/* Nút mở bộ lọc (chỉ hiện trên mobile) */
+.filter-toggle {
+    display: none; /* Mặc định ẩn trên desktop */
+    background-color: #50b3a2;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-bottom: 20px;
+    align-self: flex-start; /* Giữ nút ở đầu container */
+    gap: 8px;
+    align-items: center;
+    justify-content: center;
+}
+
+.filter-toggle i {
+    margin-right: 5px;
+}
+
+/* Container cho sidebar filter */
+.sidebar-filters {
+    /* Ẩn mặc định trên desktop */
+    display: block; /* Mặc định hiển thị trên desktop */
+    position: relative; /* Giữ nguyên position cho desktop */
+}
+
+/* Nút đóng sidebar (chỉ hiện khi sidebar mở trên mobile) */
+.close-filter-btn {
+    display: none; /* Mặc định ẩn */
+    background: transparent;
+    border: none;
+    font-size: 1.5em;
+    color: #555;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    z-index: 1001; /* Đảm bảo nằm trên sidebar */
+}
+
+.close-filter-btn:hover {
+    color: #e74c3c;
+}
+
+/* Overlay */
+.overlay {
+    display: none; /* Mặc định ẩn */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Lớp phủ mờ */
+    z-index: 998; /* Dưới sidebar, trên nội dung */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.overlay.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Media Query cho Mobile */
+@media (max-width: 768px) {
+    main > .container.page-layout {
+        flex-direction: column; /* Sắp xếp theo cột trên mobile */
+        gap: 15px;
+    }
+
+    .filter-toggle {
+        display: flex; /* Hiện nút mở bộ lọc trên mobile */
+        width: 100%; /* Nút chiếm toàn bộ chiều rộng */
+        margin-bottom: 15px;
+    }
+
+    .sidebar-filters {
+        position: fixed; /* Gắn dính vào màn hình */
+        top: 0;
+        left: 0;
+        width: 80%; /* Chiều rộng của sidebar */
+        max-width: 300px; /* Giới hạn chiều rộng */
+        height: 100%;
+        background-color: #fff;
+        z-index: 999; /* Cao hơn overlay */
+        box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+        transform: translateX(-100%); /* Ẩn sidebar ban đầu */
+        transition: transform 0.3s ease-in-out;
+        overflow-y: auto; /* Cho phép cuộn nếu nội dung dài */
+    }
+
+    .sidebar-filters.active {
+        transform: translateX(0); /* Hiện sidebar */
+    }
+
+    .sidebar-filters .filters {
+        flex-basis: auto; /* Bỏ flex-basis mặc định */
+        width: 100%;
+        height: 100%; /* Chiếm hết chiều cao của sidebar-filters */
+        padding: 20px; /* Duy trì padding nội dung */
+        box-shadow: none; /* Bỏ shadow trùng lặp */
+    }
+
+    .close-filter-btn {
+        display: block; /* Hiện nút đóng */
+    }
+
+    .product-listing {
+        flex-basis: auto; /* Bỏ flex-basis mặc định */
+        width: 100%;
+    }
+
+    .toolbar {
+        flex-direction: column; /* Sắp xếp các phần tử toolbar theo cột */
+        align-items: stretch; /* Kéo giãn các phần tử */
+        gap: 10px;
+    }
+
+    #searchInput {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    #sortBy {
+        width: 100%;
+    }
+}

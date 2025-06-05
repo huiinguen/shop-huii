@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Sản Phẩm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sanpham_chitiet.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">ChiaSẻ.VN</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Trang Chủ</a></li>
+                    <li><a href="sanpham.html">Sản Phẩm</a></li>
+                    <li><a href="lienhe.html">Liên Hệ</a></li>
+                </ul>
+                <div class="header-cart">
+                    <a href="giohang.html" id="cartLink">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount">0</span>
+                    </a>
+                </div>
+                <div class="hamburger-menu" id="hamburgerMenu"> <div class="bar"></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div id="productDetailContainer" class="product-detail">
+                <p class="loading-text">Đang tải thông tin sản phẩm...</p>
+            </div>
+        </div>
+    </main>
+
+
+    <script src="js/product_data.js"></script>
+    <script src="js/cart_logic.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sanpham_chitiet.js"></script>
+</body>
+
+</html>

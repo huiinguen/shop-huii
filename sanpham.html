@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sản Phẩm - Nền Tảng Chia Sẻ</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/sanpham.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+    <div class="container"> <nav class="navbar">
+            <a href="index.html" class="logo">ChiaSẻ.VN</a>
+            <ul class="nav-links">
+                <li><a href="index.html">Trang Chủ</a></li>
+                <li><a href="sanpham.html">Sản Phẩm</a></li>
+                <li><a href="lienhe.html">Liên Hệ</a></li>
+            </ul>
+            <div class="header-cart">
+                <a href="giohang.html" id="cartLink">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount">0</span>
+                </a>
+            </div>
+                        <div class="hamburger-menu" id="hamburgerMenu"> <div class="bar"></div>
+            </nav>
+    </div>
+</header>
+
+    <main>
+        <div class="container page-layout">
+            <button class="filter-toggle" id="filterToggle">
+                <i class="fas fa-filter"></i> Bộ lọc
+            </button>
+
+            <div class="sidebar-filters" id="sidebarFilters">
+                <button class="close-filter-btn" id="closeFilterBtn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <aside class="filters">
+                    <h3>Bộ Lọc Sản Phẩm</h3>
+                    <div class="filter-group">
+                        <h4>Danh Mục</h4>
+                        <ul id="categoryFilter">
+                            </ul>
+                    </div>
+                    <div class="filter-group">
+                        <h4>Khoảng Giá</h4>
+                        <input type="range" id="priceRange" min="0" max="5000000" step="50000">
+                        <span id="priceValue">2.500.000 VNĐ</span>
+                    </div>
+                    <button id="applyFiltersBtn" class="cta-button">Áp Dụng</button>
+                </aside>
+            </div>
+
+            <section class="product-listing">
+                <div class="toolbar">
+                    <input type="search" id="searchInput" placeholder="Tìm kiếm source code, đồ thanh lý...">
+                    <select id="sortBy">
+                        <option value="newest">Mới nhất</option>
+                        <option value="price-asc">Giá: Thấp đến Cao</option>
+                        <option value="price-desc">Giá: Cao đến Thấp</option>
+                    </select>
+                </div>
+                <div class="product-grid" id="allProductGrid">
+                    </div>
+                <div class="pagination" id="paginationControls">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="overlay" id="sidebarOverlay"></div>
+
+
+    <script src="js/product_data.js"></script>
+    <script src="js/cart_logic.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/sanpham.js"></script>
+</body>
+</html>
